@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path_names: {sign_in: "log in", sign_out: "log out"}
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
