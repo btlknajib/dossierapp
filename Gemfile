@@ -51,4 +51,5 @@ group :development, :test do
   gem "pry"
   gem 'devise'
   gem 'carrierwave'
+  gem 'mini_magick', '~> 4.3'
 end
