@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
   mount_uploader :avatar, AvatarUploader
+  has_many :posts
 end
