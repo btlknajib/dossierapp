@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -45,11 +45,13 @@ group :development, :test do
   gem 'bootstrap-sass', '~> 3.3.6'
   gem 'bootstrap_form'
   gem 'tipsy-rails', '~> 1.0', '>= 1.0.5'
-  group :development do
-    gem "better_errors"
-  end
+
   gem "pry"
-  gem 'devise'
-  gem 'carrierwave'
-  gem 'mini_magick', '~> 4.3'
+
 end
+group :development do
+  gem "better_errors"
+end
+gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick', '~> 4.3'
