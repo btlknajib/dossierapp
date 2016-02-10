@@ -53,5 +53,4 @@ gem 'mini_magick', '~> 4.3'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'
 gem 'tipsy-rails', '~> 1.0', '>= 1.0.5'
-
 gem "pry"
