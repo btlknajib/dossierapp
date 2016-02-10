@@ -8,19 +8,19 @@
 </head>
 <body>
 
+  <div class="message"> <%= flash_messages %></div>
+
   <div id="user_nav">
     <% if user_signed_in? %>
        Logged in as <strong><%= current_user.username %> <%= image_tag(current_user.avatar, style: "width:90px;height:90px") %></strong>.
        <%= link_to 'Edit profile', edit_user_registration_path %>
-       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+       <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete %>
     <% else %>
-       <%= link_to "Sign up", new_user_registration_path %>
-       <%= link_to "Login", new_user_session_path %>
+       <%= link_to "S'inscrire", new_user_registration_path %>
+       <%= link_to "Se connecter", new_user_session_path %>
     <% end %>
   </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
