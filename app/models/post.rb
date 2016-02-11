@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
-  mount_uploader :pict, AvatarUploader
-  belongs_to :user
+   has_many :post_attachments
+   accepts_nested_attributes_for :post_attachments
+   belongs_to :user
 end

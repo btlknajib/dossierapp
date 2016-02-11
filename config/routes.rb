@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :post_attachments
+
   devise_for :users, path_names: {sign_in: "log in", sign_out: "log out"}
   resources :posts
 
