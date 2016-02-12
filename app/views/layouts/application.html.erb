@@ -11,12 +11,9 @@
 <body>
 
 
-  <div class="message">
-    <%= flash_messages %>
-  </div>
 
 
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -26,35 +23,38 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Tonbouy</a>
+        <a class="navbar-brand" href="#">
+           <% if user_signed_in? %>
+                  <%= current_user.username %>
+                <strong>
+                </strong></a>
+                     <%= image_tag(current_user.avatar, width:"50", height:"50", class:"img-circle") if current_user.avatar? %>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-                <% if user_signed_in? %>
-                  Logged in as
-                    <%= current_user.username %>
-                  <strong>
-                      <%= image_tag(current_user.avatar, style: "width:20px;height:20px", class:"img-circle") %>
-                  </strong>.
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <div id="user_nav">
                 <li>  <%= link_to 'Edit profile', edit_user_registration_path %> </li>
                   <li>  <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete %> </li>
-                      <% else %>
+              </div>
+            </ul>
+          </li>
+        </ul>
+             <% else %>
+        <a class="navbar-brand" href="#">Brand</a>
+        <ul class="nav navbar-nav navbar-right">
                         <li>
                           <%= link_to "S'inscrire", new_user_registration_path %>
                         </li>
                         <li>
                           <%= link_to "Se connecter", new_user_session_path %>
                         </li>
-                        <% end %>
-              </div>
-            </ul>
-          </li>
         </ul>
+              <% end %>
       </div>
       <!-- /.navbar-collapse -->
     </div>
@@ -63,6 +63,9 @@
 
 
 
+  <div class="message" style="margin-top:50px">
+    <%= flash_messages %>
+  </div>
 
   <%= yield %>
 
