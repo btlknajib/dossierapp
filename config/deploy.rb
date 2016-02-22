@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:btlknajib/dossierapp.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, 'home/deploy/dossier'
+set :deploy_to, '/home/deploy/dossier'
 
 # Default value for :scm is :git
 # set :scm, :git
