@@ -1,12 +1,13 @@
+
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+role :app, %w{deploy@vps233867.ovh.net}
+role :web, %w{deploy@vps233867.ovh.net}
+role :db,  %w{deploy@vps233867.ovh.net}
 
 # Extended Server Syntax
 # ======================
@@ -14,7 +15,9 @@ role :db,  %w{deploy@example.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+set :stage, :production
+server 'vps233867.ovh.net', user: 'deploy', roles: %w{web app}
+
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
@@ -37,24 +40,3 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
-
-set :application, 'dossier'
-set :repo_url, 'git@github.com:excid3/myapp.git'
-
-set :deploy_to, '/home/deploy/dossier'
-
-set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-
-namespace :deploy do
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, release_path.join('tmp/restart.txt')
-    end
-  end
-
-  after :publishing, 'deploy:restart'
-  after :finishing, 'deploy:cleanup'
-end

@@ -34,6 +34,6 @@ require 'capistrano/rails'
 # set :rbenv_ruby, '2.0.0-p451'
 
 # If you are using rvm add these lines:
-# require 'capistrano/rvm'
-# set :rvm_type, :user
-# set :rvm_ruby_version, '2.0.0-p451'
+require 'capistrano/rvm'
+set :rvm_type, :user
+set :rvm_ruby_version, '2.0.0-p451'
